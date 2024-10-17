@@ -1,0 +1,10 @@
+# the requirements on package edition used in this project
+# You can enter the statement in cmd: pip install -r requirements.txt
+# Base requirements
+torch>=1.12.1+cpu
+torchvision>=0.13.1+cpu
+ultralytics>=8.3.9 
+opencv-python>=4.6.0.66
+pillow>=9.3.0
+numpy
+#yolov8n.pt download from https://github.com/ultralytics/assets/releases
