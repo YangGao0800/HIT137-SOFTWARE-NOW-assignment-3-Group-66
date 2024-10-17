@@ -7,4 +7,11 @@ ultralytics>=8.3.9
 opencv-python>=4.6.0.66
 pillow>=9.3.0
 numpy
+
+#To use the ResNet50 model
+install the required packages TensorFlow using command: 
+#pip install tensorflow
+
+
+pip install tensorflow []
 #yolov8n.pt download from https://github.com/ultralytics/assets/releases
