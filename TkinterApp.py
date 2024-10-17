@@ -77,16 +77,8 @@ class YOLOv8App(ImageProcessingMixin):
 
         # Right frame contents
         # btn_detect_img is the right button in the first line to detect objects from original image,
-        self.btn_detect_img = Button(
-            self.right_frame,
-            text="Click here to Detect Objects",
-            width=20,
-            command=self.detect_objects,
-            font=("Times New Roman", 14, "bold"),
-            borderwidth=4,
-            # when image is not loaded, the state of btn_detect_img is DISABLED.
-            state=DISABLED)  
-        self.btn_detect_img.pack(pady=50)
+        self.label_detect_result = Label(self.right_frame, text="Detected Object Result", font=("Times New Roman", 14, "bold"))
+        self.label_detect_result.pack(pady=50)
         #canvas_detected_img is the canvas to show detected image
         self.canvas_detected_img = Canvas(self.right_frame, width=400, height=600)
         self.canvas_detected_img.pack(fill=BOTH, expand=True)
@@ -104,7 +96,7 @@ class YOLOv8App(ImageProcessingMixin):
         if img_path:
             self.original_image = cv2.imread(img_path)  # use opencv to read image
             self.display_original_image()  # display original image in the left frame
-            self.btn_detect_img.config(state=NORMAL)  # after user loads image, detect button is enabled 
+            self.detect_objects()   # after user loads image, detect object result appear
 
     # Display original image in the left frame
     def display_original_image(self):
@@ -289,11 +281,11 @@ class TkinterApp:
         self.sidebar_menu_label.pack(pady=20)
 
         # Button for YOLOv8 detection
-        self.sidebar_button_1 = Button(self.sidebar_frame, text="Yolov8", command=self.sidebar_action_1, font=('Arial', 10, 'bold'), fg='black', bg='#FF6F61', activebackground='#FF8A80', relief='flat', padx=10, pady=5)
+        self.sidebar_button_1 = Button(self.sidebar_frame, text="Object Detect", command=self.sidebar_action_1, font=('Arial', 10, 'bold'), fg='black', bg='#FF6F61', activebackground='#FF8A80', relief='flat', padx=10, pady=5)
         self.sidebar_button_1.pack(pady=5)
 
         # Button for ResNet50 classification
-        self.sidebar_button_2 = Button(self.sidebar_frame, text="ResNet50", command=self.sidebar_action_2, font=('Arial', 10, 'bold'), fg='black', bg='#FFA726', activebackground='#FFCC80', relief='flat', padx=10, pady=5)
+        self.sidebar_button_2 = Button(self.sidebar_frame, text="Image Classify", command=self.sidebar_action_2, font=('Arial', 10, 'bold'), fg='black', bg='#FFA726', activebackground='#FFCC80', relief='flat', padx=10, pady=5)
         self.sidebar_button_2.pack(pady=5)
 
         # Main content frame
