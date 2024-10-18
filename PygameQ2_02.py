@@ -1,3 +1,4 @@
+import os
 import pygame
 import sys
 import random
@@ -7,7 +8,7 @@ pygame.init()
 pygame.mixer.init()
 
 # Load the background music
-pygame.mixer.music.load('/Users/alesa/Desktop/Assignments3_Q2/assets/background_music.mp3') 
+pygame.mixer.music.load(os.path.join('assets', 'background_music.mp3'))
 pygame.mixer.music.play(-1)  # Play the music indefinitely
 
 # Constants
@@ -31,7 +32,7 @@ clock = pygame.time.Clock()
 font = pygame.font.SysFont('comicsans', 30)
 
 # Load the background image
-background_image = pygame.image.load("/Users/alesa/Desktop/Assignments3_Q2/background.png").convert()
+background_image = pygame.image.load(os.path.join('assets', 'background.png')).convert()
 background_width = background_image.get_width()
 
 # Camera class for dynamic camera
