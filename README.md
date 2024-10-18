@@ -1,4 +1,4 @@
-# QUESTION 1
+# QUESTION 1 (Tkinter Application)
 
 To run this application, ensure that you have the following dependencies installed and configured:
 
